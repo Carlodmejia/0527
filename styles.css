@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ff99cc, #ff99cc); /* Fondo rosa difuminado con negro */
+    overflow: hidden; /* Oculta cualquier contenido fuera del viewport */
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center; /* Centra las imágenes */
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Ajusta la altura del contenedor del carrusel si es necesario */
+    overflow: hidden; /* Oculta las partes de las imágenes que sobresalen */
+}
+
+.carousel img, .carousel video {
+    position: absolute;
+    width: 20%; /* Ajusta el ancho para que las imágenes sean más pequeñas */
+    transition: transform 3s ease; /* Transición de escalado de 3 segundos */
+    transform: scale(0.2); /* Escala inicial más pequeña */
+    opacity: 0; /* Inicialmente oculto */
+    object-fit: cover; /* Ajusta el ajuste de las imágenes */
+}
+
+.carousel img.active, .carousel video.active {
+    animation: scaleUp 3s ease forwards; /* Aplica la animación de escala */
+    opacity: 1; /* Muestra la imagen o video activo */
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.2); /* Escala inicial */
+    }
+    100% {
+        transform: scale(1); /* Escala final */
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    padding: 20px 0;
+    margin: 0;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('https://www.clipartkey.com/mpngs/m/91-915914_heart-clipart-love-heart-clip-art.png') no-repeat center center;
+    background-size: cover;
+    animation: fall 5s infinite ease-in;
+}
+
+@keyframes fall {
+    0% {
+        top: -50px;
+        left: calc(100% * var(--random-x));
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
